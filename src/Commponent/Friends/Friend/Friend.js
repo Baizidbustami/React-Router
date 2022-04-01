@@ -1,18 +1,26 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Friend = (props) => {
     const {name, id, username}=props.user
 
-    const navigate =useNavigate(); 
+    const navigate = useNavigate(); 
     const showFriendDetail = ()=>{
         const path =`/friend/${id}`
-        navigate(path)
+        navigate(path) 
     }
     return (
         <div>
             <h2>{name}</h2>
-            <button onClick={showFriendDetail}>{username}id:{id}</button>
+            
+            {/* আমরা চাইলে Link দিয়েও ব্যবহার করতে পারি */}
+            {/* <Link to ={'/friend/' + id}>Show Detail</Link> */}
+
+
+
+             {/* আমরা চাইলে button দিয়েও ব্যবহার করতে পারি */}
+            <button onClick={showFriendDetail}>
+                {username}id:{id}</button>
         </div>
     );
 };
